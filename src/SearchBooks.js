@@ -22,7 +22,6 @@ export class SearchBooks extends Component {
           this.setState(
             {
               'books': books.map(book => (this.props.categBooks.some(cateBook => book.id === cateBook.id) ? Object.assign(book, {shelf: this.props.categBooks.find(cateBook => cateBook.id === book.id).shelf}) : Object.assign(book, {shelf: 'none'})))
-              //.map(book => ((this.props.categBooks.find(catBook => catBook.id == book.id) != undefined) ? book.shelf = this.props.categBooks.find(catBook => catBook.id === book.id).shelf : book.shelf = 'none' ))
             }
           )
         } else {
@@ -40,8 +39,6 @@ export class SearchBooks extends Component {
 
 
     render() {
-
-
         return (
         <div className="search-books">
             <div className="search-books-bar">

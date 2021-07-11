@@ -50,13 +50,10 @@ export class SearchBooks extends Component {
             </div>
             <div className="search-books-results">
               <ol className="books-grid">
-               {(this.state.query.length !== 0 && Array.isArray(this.state.books) ) ? 
+               {(this.state.query.length !== 0 && Array.isArray(this.state.books) && this.state.books.length !== 0 ) ? 
               ( <> 
-                <BookShelf shelfChanger={this.shelfChanger} title={'Currently Reading'} books={this.state.books.filter(book => book.shelf === "currentlyReading")} />
-                <BookShelf shelfChanger={this.shelfChanger} title={'Want to read'} books={this.state.books.filter(book => book.shelf === "wantToRead")} />
-                <BookShelf shelfChanger={this.shelfChanger} title={'Read'} books={this.state.books.filter(book => book.shelf === "read")} />
-                <BookShelf shelfChanger={this.shelfChanger} title={'Uncategorized'} books={this.state.books.filter(book => book.shelf ===  'none')} />
-                </>   ) : null }
+                <BookShelf shelfChanger={this.shelfChanger} title={'Search Results'} books={this.state.books} />
+                </>   ) : <p>Enter a valid search query!</p> }
               </ol>
             </div>
           </div>

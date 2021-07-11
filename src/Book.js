@@ -19,7 +19,17 @@ export default class Book extends Component {
                 
                 </div>
                 <div className="book-title">{this.props.bookTitle}</div>
-                <div className="book-authors">{this.props.bookAuthor}</div>
+                <div className="book-authors">
+                By {this.props.bookAuthor[0]}
+                    {/*Activate the next segment to show all authors in an unordered list */}
+                    {/* <ul>
+                    {this.props.bookAuthor.map(author => (
+                        <li>
+                            {author}
+                        </li>
+                    ))}
+                    </ul> */}
+                    </div>
             </div> 
         )
     }

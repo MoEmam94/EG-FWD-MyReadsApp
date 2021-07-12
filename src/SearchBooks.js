@@ -35,7 +35,13 @@ export class SearchBooks extends Component {
 
   shelfChanger = (book, toShelf) => {
     BooksAPI.update(book, toShelf)
+    .then(
+      this.setState((prevState) => ({
+        books: prevState.books.map((stateBook) => Object.assign(stateBook, {shelf: toShelf}))
+      }))
+    )
   }
+
 
 
     render() {

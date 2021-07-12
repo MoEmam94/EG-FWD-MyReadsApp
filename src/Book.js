@@ -7,7 +7,7 @@ export default class Book extends Component {
                 <div className="book-top">
                 <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${this.props.bookCover})`}}></div>
                 <div className="book-shelf-changer">
-                    <select value="DEFAULT" onChange={e => this.props.shelfChanger(e.target.value)}>
+                    <select value={this.props.bookShelf} onChange={e => this.props.shelfChanger(e.target.value)}>
                         <option value="move" disabled>Move to...</option>
                         <option hidden>Select one...</option>
                         <option value="currentlyReading">Currently Reading</option>

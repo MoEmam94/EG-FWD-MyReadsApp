@@ -22,12 +22,13 @@ componentDidMount() {
 
 shelfChanger = (book, toShelf) => {
     BooksAPI.update(book, toShelf)
-    BooksAPI.getAll()
+    .then(BooksAPI.getAll()
     .then(books => {
       this.setState(() => ({
         books
       }))
     })
+    )
   }
 
   render() {

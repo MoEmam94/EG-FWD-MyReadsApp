@@ -14,14 +14,14 @@ export class SearchBooks extends Component {
     this.setState({
       query: e
     })
-    if (this.state.query) {
-      BooksAPI.search(this.state.query)
+    if (e) {
+      BooksAPI.search(e)
       .then(books => {
-        console.log(books, this.state.query)
+        console.log(books, e)
         if (Array.isArray(books)) {
           this.setState(
             {
-              'books': books.map(book => (this.props.categBooks.some(cateBook => book.id === cateBook.id) ? Object.assign(book, {shelf: this.props.categBooks.find(cateBook => cateBook.id === book.id).shelf}) : Object.assign(book, {shelf: 'none'})))
+              'books': books.map(book => (this.props.categBooks.some(cateBook => book.id === cateBook.id) ? Object.assign(book, {shelf: this.props.categBooks.find(cateBook => cateBook.id === book.id).shelf}) : Object.assign(book, {shelf: 'None'})))
             }
           )
         } else {

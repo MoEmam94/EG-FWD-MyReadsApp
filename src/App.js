@@ -8,7 +8,8 @@ import { Link, Route } from 'react-router-dom'
 
 class BooksApp extends React.Component {
   state = {
-    books : []
+    books : [],
+    flip: false
   }
 
 componentDidMount() {
@@ -24,8 +25,9 @@ shelfChanger = (book, toShelf) => {
     BooksAPI.update(book, toShelf)
     .then(BooksAPI.getAll()
     .then(books => {
-      this.setState(() => ({
-        books
+      this.setState((prevState) => ({
+        "books": books,
+        "flip" : !prevState.flip
       }))
     })
     )
